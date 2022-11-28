@@ -49,8 +49,18 @@ class Company:
         else:
             print("Id Больше Максимального")
 
+    def try_to_destroy_courier(self, id):
+        if int(id) <= len(list_of_couriers):
+            list_of_couriers.pop(int(id) - 1)
+            print(list_of_couriers)
+        else:
+            print("Id Больше Максимального")
+
     def get_orders_count(self):
         return len(list_of_orders)
+
+    def get_couriers_count(self):
+        return len(list_of_couriers)
 
     def get_orders(self):
         return list_of_orders

@@ -36,3 +36,14 @@ class CourierManager(Courier):
         else:
             print("Введены неправильные данные")
             return
+
+    @staticmethod
+    def destroy_courier():
+        print("Введите айди нужного курьера")
+        print(company.get_couriers_count(company))
+        user_input = input()
+        if (is_number(user_input)):
+            company.try_to_destroy_courier(company, user_input)
+        else:
+            print("Введен неправильный формат id")
+            return
