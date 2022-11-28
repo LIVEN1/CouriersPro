@@ -8,5 +8,6 @@ class StopCommand(ICommand):
         if self == cmd:
             exit()
 
-    def get_command_name(self):
+    @staticmethod
+    def get_command_name():
         return cmd

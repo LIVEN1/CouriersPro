@@ -1,4 +1,5 @@
 list_of_couriers = []
+list_of_orders = []
 
 
 def get_count_of_couriers():
@@ -31,6 +32,28 @@ def get_right_count_of_couriers(value):
 
 
 class Company:
+    __list_of_orders = []
+
     def start_program(self):
         print("Program is Started")
         get_right_count_of_couriers(self)
+
+    def add_order(self, order):
+        list_of_orders.append(order)
+        print(list_of_orders)
+
+    def try_to_destroy_order(self, id):
+        if int(id) <= len(list_of_orders):
+            list_of_orders.pop(int(id) - 1)
+            print(list_of_orders)
+        else:
+            print("Id Больше Максимального")
+
+    def get_orders_count(self):
+        return len(list_of_orders)
+
+    def get_orders(self):
+        return list_of_orders
+
+    def __init__(self):
+        self.__list_of_orders = list_of_orders

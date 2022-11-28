@@ -6,11 +6,13 @@ company = Company
 
 
 class AddCourierCommand(ICommand):
-    def execute_command(self):
-        if (self == cmd):
+    def execute_command(command):
+        if (command == cmd):
             print("Введите количество курьеров")
             count_of_couriers = input()
             company.start_program(count_of_couriers)
 
-    def get_command_name(self):
+
+    @staticmethod
+    def get_command_name():
         return cmd

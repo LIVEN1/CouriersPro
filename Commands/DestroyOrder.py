@@ -1,12 +1,12 @@
 from CouriersPro.Commands.ICommand import ICommand
+from CouriersPro.Order.OrderManager import OrderManager
 
-cmd = "Debug"
+cmd = "DestroyOrder"
 
-
-class DebugCommand(ICommand):
+class DestroyOrder(ICommand):
     def execute_command(command):
         if command == cmd:
-            print("Debug on")
+            OrderManager.destroy_order()
 
     @staticmethod
     def get_command_name():
