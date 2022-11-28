@@ -1,6 +1,8 @@
 class ICommand(object):
-    def execute_command(self):
+    @staticmethod
+    def execute_command(command):
         pass
 
-    def get_command_name(self):
+    @staticmethod
+    def get_command_name():
         pass

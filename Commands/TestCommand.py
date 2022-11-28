@@ -8,5 +8,6 @@ class TestCommand(ICommand):
         if cmd == self:
             print("123")
 
-    def get_command_name(self):
+    @staticmethod
+    def get_command_name():
         return cmd
