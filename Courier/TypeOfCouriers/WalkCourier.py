@@ -1,4 +1,4 @@
-from CouriersPro.Courier.Courier import Courier
+from CouriersPro.Courier.TypeOfCouriers.Courier import Courier
 
 
 class WalkCourier(Courier):

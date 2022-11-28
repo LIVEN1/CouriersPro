@@ -56,17 +56,25 @@ class Company:
         else:
             print("Id Больше Максимального")
 
-    def get_orders_count(self):
+    @staticmethod
+    def get_orders_count():
         return len(list_of_orders)
 
-    def get_couriers_count(self):
+    @staticmethod
+    def get_couriers_count():
         return len(list_of_couriers)
 
-    def get_orders(self):
+    @staticmethod
+    def get_orders():
         return list_of_orders
+
+    @staticmethod
+    def get_couriers():
+        return list_of_couriers
 
     def add_courier(self, courier):
         list_of_couriers.append(courier)
         print(list_of_couriers)
+
     def __init__(self):
         self.__list_of_orders = list_of_orders

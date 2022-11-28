@@ -1,10 +1,10 @@
-from CouriersPro.Commands.ICommand import ICommand
-from CouriersPro.Courier.CourierManager import CourierManager
+from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
+from CouriersPro.Managers.CourierManager import CourierManager
 
 cmd = "DestroyCourier"
 
 class DestroyCourier(ICommand):
-    def execute_command(command):
+    def execute_command(self, command):
         if command == cmd:
             CourierManager.destroy_courier()
 

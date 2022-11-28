@@ -1,25 +1,27 @@
-from CouriersPro.Commands.AddCourier import AddCourierCommand
-from CouriersPro.Commands.AddOrder import AddOrder
-from CouriersPro.Commands.DebugCommand import DebugCommand
-from CouriersPro.Commands.DestroyOrder import DestroyOrder
-from CouriersPro.Commands.HelpCommand import HelpCommand
-from CouriersPro.Commands.StopCommand import StopCommand
-from CouriersPro.Commands.TestCommand import TestCommand
-from CouriersPro.Commands.DestroyCourier import DestroyCourier
+from CouriersPro.Commands.CompanyCommands.Run import StartProgram
+from CouriersPro.Commands.CompanyCommands.AddCourier import AddCourierCommand
+from CouriersPro.Commands.CompanyCommands.AddOrder import AddOrder
+from CouriersPro.Commands.OtherCommands.DebugCommand import DebugCommand
+from CouriersPro.Commands.CompanyCommands.DestroyOrder import DestroyOrder
+from CouriersPro.Commands.OtherCommands.HelpCommand import HelpCommand
+from CouriersPro.Commands.OtherCommands.StopCommand import StopCommand
+from CouriersPro.Commands.OtherCommands.TestCommand import TestCommand
+from CouriersPro.Commands.CompanyCommands.DestroyCourier import DestroyCourier
+from CouriersPro.FolderOfSetting import DebugModeController
+from CouriersPro.Tests.CreateCouriers import CourierCreator
+from CouriersPro.Tests.CreateOrders import OrderCreator
 
+debug_controller = DebugModeController.DebugModeController(False)
 
-ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder, DestroyCourier]
-a = 1
-
-
-
+ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder,
+                  DestroyCourier, StartProgram, OrderCreator, CourierCreator]
 
 
 def find_command():
     for i in range(len(ListOfCommands)):
-     ListOfCommands[i].execute_command(inputUser)
+        ListOfCommands[i].execute_command(ListOfCommands[i], inputUser)
 
 
-while a == 1:
+while True:
     inputUser = input()
     find_command()

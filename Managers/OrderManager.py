@@ -1,7 +1,8 @@
 from CouriersPro.Company.Company import Company
-from CouriersPro.Courier.Courier import Courier
+from CouriersPro.Order.Order import Order
 
 company = Company
+
 
 def is_number(array):
     if len(array) > 1:
@@ -19,31 +20,33 @@ def is_number(array):
             return False
 
 
-class CourierManager(Courier):
+class OrderManager(Order):
     @staticmethod
-    def add_courier():
+    def create_order():
         print("Введите координаты начала через пробел(x y).")
         coordinates = input()
         coordinates_array = coordinates.split()
         x_coord = coordinates_array[0]
         y_coord = coordinates_array[1]
-        if (is_number(coordinates_array)):
-            print("Введите вместимость рюкзака")
+        if is_number(coordinates_array):
+            print("Введите Вес Груза")
             weight = input()
             if is_number(weight):
-                courier = Courier(1, x_coord, y_coord, weight)
-                company.add_courier(company, courier)
+                id = company.get_orders_count(company) + 1
+                order = Order(id, x_coord, y_coord, weight)
+                company.add_order(company, order)
+
         else:
-            print("Введены неправильные данные")
+            print("Получены не числа")
             return
 
     @staticmethod
-    def destroy_courier():
-        print("Введите айди нужного курьера")
-        print(company.get_couriers_count(company))
+    def destroy_order():
+        print("Введите айди нужного заказа")
+        print(company.get_orders_count(company))
         user_input = input()
-        if (is_number(user_input)):
-            company.try_to_destroy_courier(company, user_input)
+        if is_number(user_input):
+            company.try_to_destroy_order(company, user_input)
         else:
             print("Введен неправильный формат id")
             return
