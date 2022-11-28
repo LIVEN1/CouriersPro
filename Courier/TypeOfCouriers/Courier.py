@@ -6,7 +6,6 @@ class Courier:
     x_coord = 0
     y_coord = 0
     maxWeight = 0
-    Speed = 0
 
     def __init__(self, id, x_coord, y_coord, maxWeight):
         self.id = id

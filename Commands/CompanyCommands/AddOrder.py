@@ -1,11 +1,11 @@
-from CouriersPro.Commands.ICommand import ICommand
-from CouriersPro.Order.OrderManager import OrderManager
+from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
+from CouriersPro.Managers.OrderManager import OrderManager
 
 cmd = "AddOrder"
 
 
 class AddOrder(ICommand):
-    def execute_command(command):
+    def execute_command(self, command):
         if  command == cmd:
             OrderManager.create_order()
 
