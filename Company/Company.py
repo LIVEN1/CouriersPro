@@ -62,8 +62,12 @@ class Company:
     def get_couriers_count(self):
         return len(list_of_couriers)
 
-    def get_orders(self):
+    @staticmethod
+    def get_orders():
         return list_of_orders
+    @staticmethod
+    def get_couriers():
+        return list_of_couriers
 
     def add_courier(self, courier):
         list_of_couriers.append(courier)

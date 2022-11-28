@@ -1,7 +1,8 @@
 from CouriersPro.Company.Company import Company
-from CouriersPro.Courier.Courier import Courier
+from CouriersPro.Courier.TypeOfCouriers.Courier import Courier
 
 company = Company
+
 
 def is_number(array):
     if len(array) > 1:
@@ -27,7 +28,7 @@ class CourierManager(Courier):
         coordinates_array = coordinates.split()
         x_coord = coordinates_array[0]
         y_coord = coordinates_array[1]
-        if (is_number(coordinates_array)):
+        if is_number(coordinates_array):
             print("Введите вместимость рюкзака")
             weight = input()
             if is_number(weight):
@@ -42,7 +43,7 @@ class CourierManager(Courier):
         print("Введите айди нужного курьера")
         print(company.get_couriers_count(company))
         user_input = input()
-        if (is_number(user_input)):
+        if is_number(user_input):
             company.try_to_destroy_courier(company, user_input)
         else:
             print("Введен неправильный формат id")

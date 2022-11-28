@@ -28,10 +28,10 @@ class OrderManager(Order):
         coordinates_array = coordinates.split()
         x_coord = coordinates_array[0]
         y_coord = coordinates_array[1]
-        if (is_number(coordinates_array)):
+        if is_number(coordinates_array):
             print("Введите Вес Груза")
             weight = input()
-            if (is_number(weight)):
+            if is_number(weight):
                 id = company.get_orders_count(company) + 1
                 order = Order(id, x_coord, y_coord, weight)
                 company.add_order(company, order)
@@ -45,7 +45,7 @@ class OrderManager(Order):
         print("Введите айди нужного заказа")
         print(company.get_orders_count(company))
         user_input = input()
-        if(is_number(user_input)):
+        if is_number(user_input):
             company.try_to_destroy_order(company, user_input)
         else:
             print("Введен неправильный формат id")

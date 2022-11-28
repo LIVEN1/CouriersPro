@@ -1,19 +1,15 @@
-from CouriersPro.Courier.Coordinates import Coordinates
-
-
 class Order:
     id = 0
-    start_coordinates = Coordinates
-    stop_coordinates = Coordinates
+    x_coord = 0
+    y_coord = 0
     weight = 0
 
-    def __init__(self, id, start_coordinates, stop_coordinates, weight):
+    def __init__(self, id, x_coord, y_coord, weight):
         self.id = id
-        self.start_coordinates = start_coordinates
-        self.stop_coordinates = stop_coordinates
+        self.x_coord = x_coord
+        self.y_coord = y_coord
         self.weight = weight
 
     def __new__(cls, *args, **kwargs):
         instance = super().__new__(cls)
         return instance
-
