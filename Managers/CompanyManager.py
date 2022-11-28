@@ -7,33 +7,27 @@ dictionary = dict()
 
 class CompanyManager(Company):
     def start_program(self):
-        self.check_weight()
+        self.check_weight(CompanyManager)
 
-    @staticmethod
-    def check_distance():
-        orders = Company.get_orders()
-        couriers = Company.get_couriers()
-        for i in range(len(orders)):
-            order = orders[i]
-            for i in range(len(couriers)):
-                result = (orders[i].x_coord - couriers[i].x_coord) ** 2 + (orders[i].y_coord - couriers[i].y_coord) ** 2
-                order_query.append(result)
-            sorted(order_query)
-            best_order_distance = order_query[0]
-
-    @staticmethod
-    def check_weight():
-        orders = Company.get_orders()
-        couriers = Company.get_couriers()
+    def check_distance(self, courier):
+        orders = courier.get_best_orders_by_weight()
+        if len(orders) == 0:
+            return
+        best_orders = {}
         for order in orders:
-            order_query.append(order)
-            print(order.weight)
-            for courier in couriers:
-                if courier.maxWeight < order.weight:
-                    print(courier.maxWeight)
-                    return
-                order_query.append(courier)
-                print(courier.maxWeight)
-                print(order_query)
-            if len(order_query) == 2:
-                courier.attach_order(order)
+            result = (order.x_coord - courier.x_coord) ** 2 + (order.y_coord - courier.y_coord) ** 2
+            best_orders[order] = result
+        print(best_orders)
+        min_distance = min(best_orders.values())
+        best_order = [key for key in best_orders if best_orders[key] == min_distance]
+        courier.attach_order(best_order)
+        return
+
+    def check_weight(self):
+        orders = Company.get_orders()
+        couriers = Company.get_couriers()
+        for courier in couriers:
+            for order in orders:
+                if courier.maxWeight >= order.weight:
+                    courier.attach_best_orders_by_weight(order)
+            self.check_distance(self, courier)

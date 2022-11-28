@@ -19,7 +19,7 @@ class OrderCreator(ICommand):
         print("Debug mode is: " + str(debug_mode.DebugModeController.is_debug_mode(debug_mode)))
         print("Введите количетсво нужных заказов")
         value = input()
-        if value.isdigit() & int(value) > 0:
+        if int(value) > 0:
             for i in range(int(value)):
                 get_id = company.get_orders_count() + 1
                 order = Order(get_id, self.__get_random_coordinates__(), self.__get_random_coordinates__(),
@@ -32,4 +32,4 @@ class OrderCreator(ICommand):
 
     @staticmethod
     def __get_random_weight():
-        return random.randint(1, 6)
+        return random.randint(1, 3)

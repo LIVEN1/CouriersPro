@@ -19,7 +19,7 @@ class CourierCreator(ICommand):
         print("Debug mode is: " + str(debug_mode.DebugModeController.is_debug_mode(debug_mode)))
         print("Введите количетсво нужных курьеров")
         value = input()
-        if value.isdigit() & int(value) > 0:
+        if int(value) > 0:
             for i in range(int(value)):
                 get_id = company.get_couriers_count() + 1
                 courier = Courier(get_id, self.__get_random_coordinates__(), self.__get_random_coordinates__(),
