@@ -10,8 +10,8 @@ cmd = "Help"
 
 
 class HelpCommand(ICommand):
-    def execute_command(self):
-        if cmd == self:
+    def execute_command(command):
+        if cmd == command:
             print(cmd, StopCommand.get_command_name(), AddOrder.get_command_name(), DebugCommand.get_command_name(), DestroyOrder.get_command_name(), AddCourierCommand.get_command_name())
 
     @staticmethod

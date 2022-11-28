@@ -1,16 +1,13 @@
 from CouriersPro.Commands.ICommand import ICommand
-from CouriersPro.Company.Company import Company
+from CouriersPro.Courier.CourierManager import CourierManager
 
 cmd = "AddCourier"
-company = Company
 
 
 class AddCourierCommand(ICommand):
     def execute_command(command):
         if (command == cmd):
-            print("Введите количество курьеров")
-            count_of_couriers = input()
-            company.start_program(count_of_couriers)
+            CourierManager.add_courier()
 
 
     @staticmethod

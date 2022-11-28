@@ -49,3 +49,4 @@ class OrderManager(Order):
             company.try_to_destroy_order(company, user_input)
         else:
             print("Введен неправильный формат id")
+            return

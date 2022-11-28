@@ -55,5 +55,8 @@ class Company:
     def get_orders(self):
         return list_of_orders
 
+    def add_courier(self, courier):
+        list_of_couriers.append(courier)
+        print(list_of_couriers)
     def __init__(self):
         self.__list_of_orders = list_of_orders
