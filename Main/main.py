@@ -11,7 +11,7 @@ from CouriersPro.FolderOfSetting import DebugModeController
 from CouriersPro.Tests.CreateCouriers import CourierCreator
 from CouriersPro.Tests.CreateOrders import OrderCreator
 
-debug_controller = DebugModeController.DebugModeControoler()
+debug_controller = DebugModeController.DebugModeController(False)
 
 ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder,
                   DestroyCourier, StartProgram, OrderCreator, CourierCreator]

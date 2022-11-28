@@ -11,7 +11,7 @@ class DebugCommand(ICommand):
     def execute_command(self, command):
         if command == cmd:
             print("Debug mode on")
-            debug_mode.DebugModeControoler.set_debug_mode(debug_mode, True)
+            debug_mode.DebugModeController.set_debug_mode(debug_mode, True)
 
 
     @staticmethod

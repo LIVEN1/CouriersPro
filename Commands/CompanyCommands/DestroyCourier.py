@@ -1,5 +1,5 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Courier.CourierManager import CourierManager
+from CouriersPro.Managers.CourierManager import CourierManager
 
 cmd = "DestroyCourier"
 
