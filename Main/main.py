@@ -5,9 +5,10 @@ from CouriersPro.Commands.DestroyOrder import DestroyOrder
 from CouriersPro.Commands.HelpCommand import HelpCommand
 from CouriersPro.Commands.StopCommand import StopCommand
 from CouriersPro.Commands.TestCommand import TestCommand
+from CouriersPro.Commands.DestroyCourier import DestroyCourier
 
 
-ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder]
+ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder, DestroyCourier]
 a = 1
 
 

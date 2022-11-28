@@ -3,15 +3,16 @@ from CouriersPro.Courier.Coordinates import Coordinates
 
 class Courier:
     id = 1
-    coordinates = Coordinates
+    x_coord = 0
+    y_coord = 0
     maxWeight = 0
     Speed = 0
 
-    def __init__(self, id, coordinates, maxWeight, Speed):
+    def __init__(self, id, x_coord, y_coord, maxWeight):
         self.id = id
-        self.coordinates = coordinates
+        self.x_coord = x_coord
+        self.y_coord = y_coord
         self.maxWeight = maxWeight
-        self.Speed = Speed
 
     def attach_order(self, order):
         pass
