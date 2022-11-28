@@ -6,6 +6,9 @@ dictionary = dict()
 
 
 class CompanyManager(Company):
+    def start_program(self):
+        self.check_weight()
+
     @staticmethod
     def check_distance():
         orders = Company.get_orders()
@@ -24,7 +27,13 @@ class CompanyManager(Company):
         couriers = Company.get_couriers()
         for order in orders:
             order_query.append(order)
+            print(order.weight)
             for courier in couriers:
                 if courier.maxWeight < order.weight:
+                    print(courier.maxWeight)
                     return
                 order_query.append(courier)
+                print(courier.maxWeight)
+                print(order_query)
+            if len(order_query) == 2:
+                courier.attach_order(order)
