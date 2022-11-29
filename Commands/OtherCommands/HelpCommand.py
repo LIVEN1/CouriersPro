@@ -13,6 +13,7 @@ class HelpCommand(ICommand):
         if cmd == command:
             print(cmd, StopCommand.get_command_name(), AddOrder.get_command_name(),
                   DestroyOrder.get_command_name(), AddCourierCommand.get_command_name(), DestroyCourier.get_command_name())
+            return
 
     @staticmethod
     def get_command_name():

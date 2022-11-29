@@ -1,5 +1,5 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Managers.CompanyManager import CompanyManager
+from CouriersPro.Company.Manager.CompanyManager import CompanyManager
 
 cmd = "Run"
 companyManager = CompanyManager
@@ -14,6 +14,8 @@ class StartProgram(ICommand):
 
             else:
                 companyManager.start_program(companyManager)
+                return
+
 
     @staticmethod
     def get_command_name():

@@ -7,11 +7,11 @@ from CouriersPro.Commands.OtherCommands.HelpCommand import HelpCommand
 from CouriersPro.Commands.OtherCommands.StopCommand import StopCommand
 from CouriersPro.Commands.OtherCommands.TestCommand import TestCommand
 from CouriersPro.Commands.CompanyCommands.DestroyCourier import DestroyCourier
-from CouriersPro.FolderOfSetting import DebugModeController
+from CouriersPro.FolderOfSetting.DebugModeController import DebugModeController
+from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Tests.CreateCouriers import CourierCreator
 from CouriersPro.Tests.CreateOrders import OrderCreator
 
-debug_controller = DebugModeController.DebugModeController(False)
 
 ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder,
                   DestroyCourier, StartProgram, OrderCreator, CourierCreator]
@@ -23,5 +23,5 @@ def find_command():
 
 
 while True:
-    inputUser = input()
+    inputUser = InputManager.get_input()
     find_command()

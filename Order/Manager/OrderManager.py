@@ -1,7 +1,8 @@
-from CouriersPro.Company.Company import Company
+from CouriersPro.Company.Manager.CompanyManager import CompanyManager
+from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Order.Order import Order
 
-company = Company
+company = CompanyManager
 
 
 def is_number(array):
@@ -24,13 +25,13 @@ class OrderManager(Order):
     @staticmethod
     def create_order():
         print("Введите координаты начала через пробел(x y).")
-        coordinates = input()
+        coordinates = InputManager.get_input()
         coordinates_array = coordinates.split()
         x_coord = coordinates_array[0]
         y_coord = coordinates_array[1]
         if is_number(coordinates_array):
             print("Введите Вес Груза")
-            weight = input()
+            weight = InputManager.get_input()
             if is_number(weight):
                 id = company.get_orders_count(company) + 1
                 order = Order(id, x_coord, y_coord, weight)
@@ -44,7 +45,7 @@ class OrderManager(Order):
     def destroy_order():
         print("Введите айди нужного заказа")
         print(company.get_orders_count(company))
-        user_input = input()
+        user_input = InputManager.get_input()
         if is_number(user_input):
             company.try_to_destroy_order(company, user_input)
         else:

@@ -1,24 +1,24 @@
 import random
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Company import Company
+from CouriersPro.Company.Manager.CompanyManager import CompanyManager
 from CouriersPro.Courier.TypeOfCouriers.Courier import Courier
-from CouriersPro.FolderOfSetting import DebugModeController
+from CouriersPro.FolderOfSetting.DebugModeController import DebugModeController
+from CouriersPro.InputManager.InputManager import InputManager
 
 cmd = "CC"
-company = Company
-debug_mode = DebugModeController
+company = CompanyManager
+debug_controller = DebugModeController
 
 
 class CourierCreator(ICommand):
     def execute_command(self, command):
         if command == cmd:
-            if debug_mode.DebugModeController.is_debug_mode(debug_mode):
+            if debug_controller.is_debug_mode(DebugModeController):
                 self.create_courier(self)
 
     def create_courier(self):
-        print("Debug mode is: " + str(debug_mode.DebugModeController.is_debug_mode(debug_mode)))
         print("Введите количетсво нужных курьеров")
-        value = input()
+        value = InputManager.get_input()
         if int(value) > 0:
             for i in range(int(value)):
                 get_id = company.get_couriers_count() + 1

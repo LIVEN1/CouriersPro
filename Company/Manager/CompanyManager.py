@@ -31,3 +31,4 @@ class CompanyManager(Company):
                 if courier.maxWeight >= order.weight:
                     courier.attach_best_orders_by_weight(order)
             self.check_distance(self, courier)
+

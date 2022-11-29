@@ -1,24 +1,24 @@
 import random
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Company import Company
-from CouriersPro.FolderOfSetting import DebugModeController
+from CouriersPro.Company.Manager.CompanyManager import CompanyManager
+from CouriersPro.FolderOfSetting.DebugModeController import DebugModeController
+from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Order.Order import Order
 
 cmd = "CO"
-company = Company
-debug_mode = DebugModeController
+company = CompanyManager
+debug_controller = DebugModeController
 
 
 class OrderCreator(ICommand):
     def execute_command(self, command):
         if command == cmd:
-            if debug_mode.DebugModeController.is_debug_mode(debug_mode):
+            if debug_controller.is_debug_mode(DebugModeController):
                 self.create_orders(self)
 
     def create_orders(self):
-        print("Debug mode is: " + str(debug_mode.DebugModeController.is_debug_mode(debug_mode)))
         print("Введите количетсво нужных заказов")
-        value = input()
+        value = InputManager.get_input()
         if int(value) > 0:
             for i in range(int(value)):
                 get_id = company.get_orders_count() + 1
