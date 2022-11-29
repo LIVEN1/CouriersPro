@@ -49,3 +49,22 @@ class CourierManager(Courier):
         else:
             print("Введен неправильный формат id")
             return
+
+    @staticmethod
+    def get_courier_info():
+        couriers = company.get_couriers()
+        for i in range(len(couriers)):
+            print(couriers[i].id)
+
+        id_courier = InputManager.get_input()
+        if is_number(id_courier):
+            for courier in couriers:
+                if courier.id == int(id_courier):
+                    print("Курьер найден")
+                    print("Местоположение курьера: " + str(courier.x_coord) + "," + str(courier.y_coord))
+                    print("Вместимость рюкзака: " + str(courier.maxWeight))
+                    return
+            else:
+                print("Курьер не найден")
+        else:
+            print("Неправильный формат")
