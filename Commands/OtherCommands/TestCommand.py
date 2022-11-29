@@ -5,7 +5,7 @@ cmd = "Test"
 
 class TestCommand(ICommand):
     def execute_command(self, command):
-        if cmd == command:
+        if cmd.casefold() == command.casefold():
             print("123")
             return
 

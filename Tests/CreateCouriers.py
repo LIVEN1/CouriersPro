@@ -12,14 +12,15 @@ debug_controller = DebugModeController
 
 class CourierCreator(ICommand):
     def execute_command(self, command):
-        if command == cmd:
+        if command.casefold() == cmd.casefold():
             if debug_controller.is_debug_mode(DebugModeController):
                 self.create_courier(self)
+                return
 
     def create_courier(self):
         print("Введите количетсво нужных курьеров")
         value = InputManager.get_input()
-        if int(value) > 0:
+        if InputManager.is_number(value) and int(value) > 0:
             for i in range(int(value)):
                 get_id = company.get_couriers_count() + 1
                 courier = Courier(get_id, self.__get_random_coordinates__(), self.__get_random_coordinates__(),

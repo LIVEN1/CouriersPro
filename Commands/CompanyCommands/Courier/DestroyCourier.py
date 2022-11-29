@@ -6,7 +6,7 @@ cmd = "DestroyCourier"
 
 class DestroyCourier(ICommand):
     def execute_command(self, command):
-        if command == cmd:
+        if command.casefold() == cmd.casefold():
             CourierManager.destroy_courier()
             return
 

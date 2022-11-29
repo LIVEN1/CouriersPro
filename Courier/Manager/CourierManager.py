@@ -5,22 +5,6 @@ from CouriersPro.InputManager.InputManager import InputManager
 company = CompanyManager
 
 
-def is_number(array):
-    if len(array) > 1:
-        first_value = array[0]
-        second_value = array[1]
-        if first_value.isdigit() & second_value.isdigit():
-            return True
-        else:
-            return False
-    else:
-        value = array[0]
-        if value.isdigit():
-            return True
-        else:
-            return False
-
-
 class CourierManager(Courier):
     @staticmethod
     def add_courier():
@@ -29,10 +13,10 @@ class CourierManager(Courier):
         coordinates_array = coordinates.split()
         x_coord = coordinates_array[0]
         y_coord = coordinates_array[1]
-        if is_number(coordinates_array):
+        if InputManager.is_number(coordinates_array):
             print("Введите вместимость рюкзака")
             weight = InputManager.get_input()
-            if is_number(weight):
+            if InputManager.is_number(weight):
                 courier = Courier(1, x_coord, y_coord, weight)
                 company.add_courier(company, courier)
         else:
@@ -43,9 +27,9 @@ class CourierManager(Courier):
     def destroy_courier():
         print("Введите айди нужного курьера")
         print(company.get_couriers_count(company))
-        user_input = InputManager.get_input()
-        if is_number(user_input):
-            company.try_to_destroy_courier(company, user_input)
+        courier_id = InputManager.get_input()
+        if InputManager.is_number(courier_id):
+            company.try_to_destroy_courier(company, courier_id)
         else:
             print("Введен неправильный формат id")
             return
@@ -57,7 +41,7 @@ class CourierManager(Courier):
             print(couriers[i].id)
 
         id_courier = InputManager.get_input()
-        if is_number(id_courier):
+        if InputManager.is_number(id_courier):
             for courier in couriers:
                 if courier.id == int(id_courier):
                     print("Курьер найден")

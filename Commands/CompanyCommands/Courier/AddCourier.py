@@ -6,7 +6,7 @@ cmd = "AddCourier"
 
 class AddCourierCommand(ICommand):
     def execute_command(self, command):
-        if (command == cmd):
+        if command.casefold() == cmd.casefold():
             CourierManager.add_courier()
             return
 

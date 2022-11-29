@@ -8,7 +8,7 @@ courier_manager = CourierManager
 
 class CourierStatsCommand(ICommand):
     def execute_command(self, command):
-        if command == cmd:
+        if command.casefold() == cmd.casefold():
             print("Введите id нужного курьера")
             courier_manager.get_courier_info()
 
