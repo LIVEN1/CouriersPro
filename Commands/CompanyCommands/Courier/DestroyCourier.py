@@ -1,12 +1,14 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Managers.CourierManager import CourierManager
+from CouriersPro.Courier.Manager.CourierManager import courier_manager
 
 cmd = "DestroyCourier"
 
+
 class DestroyCourier(ICommand):
     def execute_command(self, command):
-        if command == cmd:
-            CourierManager.destroy_courier()
+        if command.casefold() == cmd.casefold():
+            courier_manager.destroy_courier()
+            return
 
     @staticmethod
     def get_command_name():
