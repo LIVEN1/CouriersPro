@@ -9,8 +9,11 @@ class CourierManager:
         print("Введите координаты начала через пробел(x y).")
         coordinates = InputManager.get_input()
         coordinates_array = coordinates.split()
-        x_coord = int(coordinates_array[0])
-        y_coord = int(coordinates_array[1])
+        if len(coordinates_array) < 2:
+            print("Error")
+            return
+        x_coord = coordinates_array[0]
+        y_coord = coordinates_array[1]
         if InputManager.is_number(coordinates_array):
             print("Введите вместимость рюкзака")
             weight = InputManager.get_input()
