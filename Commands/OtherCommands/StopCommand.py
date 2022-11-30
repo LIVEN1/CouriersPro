@@ -5,7 +5,7 @@ cmd = "Stop"
 
 class StopCommand(ICommand):
     def execute_command(self, command):
-        if command == cmd:
+        if command.casefold() == cmd.casefold():
             exit()
 
     @staticmethod
