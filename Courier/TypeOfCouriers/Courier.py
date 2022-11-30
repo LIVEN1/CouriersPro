@@ -14,4 +14,9 @@ class Courier:
         self.maxWeight = maxWeight
 
     def attach_order(self, order):
-        print("Курьер с номером: " + str(self.id) + " выполнит заказ номер: " + str(order[0].id))
+        print("Курьер с номером: " + str(self.id) + " выполнит заказ номер: " + str(order.id))
+        self.change_weight(order.weight)
+
+    def change_weight(self, order_weight):
+        self.maxWeight -= order_weight
+        print(self.maxWeight)

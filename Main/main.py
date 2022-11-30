@@ -11,10 +11,11 @@ from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Tests.CreateCouriers import CourierCreator
 from CouriersPro.Tests.CreateOrders import OrderCreator
 from CouriersPro.Commands.CompanyCommands.Courier.CourierStatsCommand import CourierStatsCommand
+from CouriersPro.Commands.CompanyCommands.Order.OrderStatsCommand import GetOrderInfo
 
 
 ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, StopCommand, DestroyOrder, AddOrder,
-                  DestroyCourier, StartProgram, OrderCreator, CourierCreator, CourierStatsCommand]
+                  DestroyCourier, StartProgram, OrderCreator, CourierCreator, CourierStatsCommand, GetOrderInfo]
 
 
 def find_command():

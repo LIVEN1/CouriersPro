@@ -1,15 +1,13 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.DeliveryManager import company_manager
+from CouriersPro.Order.Manager.OrderManager import order_manager
 
-cmd = "Run"
+cmd = "GetOrderInfo"
 
-
-class StartProgram(ICommand):
+class GetOrderInfo(ICommand):
     def execute_command(self, command):
         if command.casefold() == cmd.casefold():
-            company_manager.start_program()
+            order_manager.get_order_info()
             return
 
-    @staticmethod
     def get_command_name():
         return cmd
