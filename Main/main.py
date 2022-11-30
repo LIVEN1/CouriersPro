@@ -18,8 +18,8 @@ ListOfCommands = [DebugCommand, AddCourierCommand, TestCommand, HelpCommand, Sto
 
 
 def find_command():
-    for i in range(len(ListOfCommands)):
-        ListOfCommands[i].execute_command(ListOfCommands[i], inputUser)
+    for command in ListOfCommands:
+        command.execute_command(command, inputUser)
 
 
 while True:

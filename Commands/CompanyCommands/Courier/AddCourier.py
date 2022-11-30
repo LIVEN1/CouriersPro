@@ -1,5 +1,5 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Courier.Manager.CourierManager import CourierManager
+from CouriersPro.Courier.Manager.CourierManager import courier_manager
 
 cmd = "AddCourier"
 
@@ -7,7 +7,7 @@ cmd = "AddCourier"
 class AddCourierCommand(ICommand):
     def execute_command(self, command):
         if command.casefold() == cmd.casefold():
-            CourierManager.add_courier()
+            courier_manager.add_courier()
             return
 
 

@@ -1,19 +1,18 @@
 import random
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.CompanyManager import CompanyManager
+from CouriersPro.Company.Manager.CompanyManager import company
 from CouriersPro.Courier.TypeOfCouriers.Courier import Courier
-from CouriersPro.FolderOfSetting.DebugModeController import DebugModeController
+from CouriersPro.FolderOfSetting.DebugModeController import debug_mode_controller
 from CouriersPro.InputManager.InputManager import InputManager
 
 cmd = "CC"
-company = CompanyManager
-debug_controller = DebugModeController
+
 
 
 class CourierCreator(ICommand):
     def execute_command(self, command):
         if command.casefold() == cmd.casefold():
-            if debug_controller.is_debug_mode(DebugModeController):
+            if debug_mode_controller.is_debug_mode():
                 self.create_courier(self)
                 return
 
@@ -22,10 +21,9 @@ class CourierCreator(ICommand):
         value = InputManager.get_input()
         if InputManager.is_number(value) and int(value) > 0:
             for i in range(int(value)):
-                get_id = company.get_couriers_count() + 1
-                courier = Courier(get_id, self.__get_random_coordinates__(), self.__get_random_coordinates__(),
+                courier = Courier(self.__get_random_coordinates__(), self.__get_random_coordinates__(),
                                   self.__get_random_weight())
-                company.add_courier(company, courier)
+                company.add_courier(courier)
 
     @staticmethod
     def __get_random_coordinates__():

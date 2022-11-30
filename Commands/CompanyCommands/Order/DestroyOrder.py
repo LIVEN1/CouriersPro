@@ -1,5 +1,5 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Order.Manager.OrderManager import OrderManager
+from CouriersPro.Order.Manager.OrderManager import order_manager
 
 cmd = "DestroyOrder"
 
@@ -7,7 +7,7 @@ cmd = "DestroyOrder"
 class DestroyOrder(ICommand):
     def execute_command(self, command):
         if command == cmd:
-            OrderManager.destroy_order()
+            order_manager.destroy_order()
             return
 
     @staticmethod
