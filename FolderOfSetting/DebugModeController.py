@@ -6,6 +6,7 @@ class DebugModeController:
 
     def set_debug_mode(self, debug_mode_status):
         self.is_debug_mode_on = debug_mode_status
+        print(self.is_debug_mode_on)
 
-    def __init__(self, deubg_mode):
-        self.is_debug_mode_on = deubg_mode
+
+debug_mode_controller = DebugModeController()
