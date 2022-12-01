@@ -7,7 +7,7 @@ class DeliveryManager:
         if company.get_orders_count() < 1 and company.get_couriers_count() < 1:
             print("Error")
             return
-        self.check_weight(None, None, None)
+        self.check_weight()
 
     def check_distance(self, courier, best_weight_orders):
         if len(best_weight_orders) == 0:
@@ -24,7 +24,7 @@ class DeliveryManager:
         self.check_weight(courier, best_weight_orders, best_order[0])
         return
 
-    def check_weight(self, delivery_boy, best_orders, previous_order):
+    def check_weight(self, delivery_boy = None, best_orders = None, previous_order = None):
         if delivery_boy is None and best_orders is None:
             orders = self.__company.get_orders()
             couriers = self.__company.get_couriers()
