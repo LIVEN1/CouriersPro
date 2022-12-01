@@ -21,24 +21,10 @@ class OrderManager:
             if InputManager.is_number(weight) and int(weight) > 0:
                 order = Order(x_coord, y_coord, int(weight))
                 company.add_order(order)
-            else:
-                print("Вес введен неправильно")
-
-        else:
-            print("Получены не числа")
-            return
+            
 
 
-    @staticmethod
-    def destroy_order():
-        print("Введите айди нужного заказа")
-        print(company.get_orders_count())
-        user_input = InputManager.get_input()
-        if InputManager.is_number(user_input):
-            company.try_to_destroy_order(user_input)
-        else:
-            print("Введен неправильный формат id")
-            return
+
 
 
     @staticmethod
