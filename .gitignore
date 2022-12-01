@@ -6,3 +6,5 @@ Company/__pycache__/
 Courier/__pycache__/
 
 Order/__pycache__/
+
+*.pyc

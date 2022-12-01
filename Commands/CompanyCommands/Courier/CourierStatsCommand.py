@@ -1,9 +1,8 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Courier.Manager.CourierManager import CourierManager
+from CouriersPro.Courier.Manager.CourierManager import courier_manager
 
 
-cmd = "Get Courier Info"
-courier_manager = CourierManager
+cmd = "GetCourierInfo"
 
 
 class CourierStatsCommand(ICommand):

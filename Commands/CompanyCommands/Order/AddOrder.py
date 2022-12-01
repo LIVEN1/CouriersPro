@@ -6,7 +6,7 @@ cmd = "AddOrder"
 
 class AddOrder(ICommand):
     def execute_command(self, command):
-        if command == cmd:
+        if command.casefold() == cmd.casefold():
             order_manager.create_order()
             return
 

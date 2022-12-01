@@ -1,6 +1,6 @@
 import random
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.CompanyManager import company
+from CouriersPro.Company.Manager.DeliveryManager import company
 from CouriersPro.FolderOfSetting.DebugModeController import debug_mode_controller
 from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Order.Order import Order
@@ -23,6 +23,7 @@ class OrderCreator(ICommand):
                 order = Order(self.__get_random_coordinates__(), self.__get_random_coordinates__(),
                               self.__get_random_weight())
                 company.add_order(order)
+            print("Создано " + value + " Заказа")
 
     @staticmethod
     def __get_random_coordinates__():
