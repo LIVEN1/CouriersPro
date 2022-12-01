@@ -6,23 +6,35 @@ class InputManager:
 
     @staticmethod
     def is_number(array):
-        if len(array) == 0:
-            print("Error")
+
+        values = array.split(" ")
+
+        if len(values) == 0:
+            print("Ошибка")
             return
 
-
-        if len(array) > 1:
-            first_value = array[0]
-            second_value = array[1]
+        if len(values) > 1:
+            first_value = values[0]
+            second_value = values[1]
             if first_value.isdigit() & second_value.isdigit():
                 return True
             else:
-                print("Error")
+                print("Ошибка")
                 return False
         else:
-            value = array[0]
+            value = values[0]
             if value.isdigit():
                 return True
             else:
-                print("Error")
+                print("Ошибка")
                 return False
+
+    @staticmethod
+    def check_length_array(value, length):
+        array = value.split(" ")
+        if len(array) != length:
+            print("Ошибка")
+            return False
+        return True
+
+

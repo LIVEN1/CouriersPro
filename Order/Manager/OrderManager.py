@@ -1,4 +1,4 @@
-from CouriersPro.Company.Manager.DeliveryManager import company
+from CouriersPro.Company.Delivery.DeliveryManager import company
 from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Order.Order import Order
 
@@ -8,30 +8,31 @@ class OrderManager:
     def create_order():
         print("Введите координаты начала через пробел(x y).")
         coordinates = InputManager.get_input()
-        coordinates_array = coordinates.split()
-        if InputManager.is_number(coordinates_array):
-            if len(coordinates_array) < 2:
-                print("Error")
-                return
-
+        if InputManager.is_number(coordinates) and InputManager.check_length_array(coordinates, 2):
+            coordinates_array = coordinates.split(" ")
             x_coord = int(coordinates_array[0])
             y_coord = int(coordinates_array[1])
             print("Введите Вес Груза")
             weight = InputManager.get_input()
-            if InputManager.is_number(weight) and int(weight) > 0:
-                order = Order(x_coord, y_coord, int(weight))
-                company.add_order(order)
-            
-
-
-
-
+            if InputManager.is_number(weight) and InputManager.check_length_array(weight, 1):
+                if int(weight) > 0:
+                    order = Order(x_coord, y_coord, int(weight))
+                    company.add_order(order)
+                    print("Заказ создан")
 
     @staticmethod
     def get_order_info():
         orders = company.get_orders()
+        if len(orders) < 1:
+            print("Недостаточно заказов")
+            return
+
+        print("Введите id нужного заказа")
+
+
         for order in orders:
-            print(order.id)
+            print(str(order.id))
+
 
         id = InputManager.get_input()
         for order in orders:

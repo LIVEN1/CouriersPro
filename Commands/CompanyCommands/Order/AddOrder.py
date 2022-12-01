@@ -1,4 +1,4 @@
-from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
+from CouriersPro.Commands.ICommand import ICommand
 from CouriersPro.Order.Manager.OrderManager import order_manager
 
 cmd = "AddOrder"

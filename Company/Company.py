@@ -6,7 +6,7 @@ class Company:
         self.__list_of_orders__.append(order)
 
 
-    def try_to_destroy_order(self, order):
+    def destroy_order(self, order):
         if self.get_orders_count() < 1:
             print("Error")
             return

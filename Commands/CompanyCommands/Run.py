@@ -1,5 +1,5 @@
-from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.DeliveryManager import delivery_manager
+from CouriersPro.Commands.ICommand import ICommand
+from CouriersPro.Company.Delivery.DeliveryManager import delivery_manager
 
 cmd = "Run"
 

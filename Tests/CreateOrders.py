@@ -1,6 +1,6 @@
 import random
-from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.DeliveryManager import company
+from CouriersPro.Commands.ICommand import ICommand
+from CouriersPro.Company.Delivery.DeliveryManager import company
 from CouriersPro.FolderOfSetting.DebugModeController import debug_mode_controller
 from CouriersPro.InputManager.InputManager import InputManager
 from CouriersPro.Order.Order import Order

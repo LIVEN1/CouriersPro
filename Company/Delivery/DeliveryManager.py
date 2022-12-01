@@ -19,12 +19,12 @@ class DeliveryManager:
         min_distance = min(best_orders.values())
         best_order = [key for key in best_orders if best_orders[key] == min_distance]
         courier.attach_order(best_order[0])
-        company.try_to_destroy_order(best_order[0])
+        company.destroy_order(best_order[0])
         best_weight_orders.remove(best_order[0])
-        self.check_weight(courier, best_weight_orders, best_order[0])
+        self.check_weight(courier, best_weight_orders)
         return
 
-    def check_weight(self, delivery_boy = None, best_orders = None, previous_order = None):
+    def check_weight(self, delivery_boy=None, best_orders=None):
         if delivery_boy is None and best_orders is None:
             orders = self.__company.get_orders()
             couriers = self.__company.get_couriers()
@@ -43,12 +43,12 @@ class DeliveryManager:
             if len(best_weight_orders) == 0:
                 delivery_boy.go_to_base()
                 return
+
             self.check_distance(delivery_boy, best_weight_orders)
 
 
     def __init__(self, company):
         self.__company = company
-        print(True)
 
 
 company = Company()

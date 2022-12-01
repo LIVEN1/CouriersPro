@@ -1,4 +1,4 @@
-from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
+from CouriersPro.Commands.ICommand import ICommand
 from CouriersPro.FolderOfSetting.DebugModeController import debug_mode_controller
 
 cmd = "Debug"
