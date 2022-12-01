@@ -31,15 +31,20 @@ class DeliveryManager:
             for courier in couriers:
                 best_weight_orders = []
                 for order in orders:
-                    if int(courier.maxWeight) >= int(order.weight):
+                    if int(courier.backpack_weight) >= int(order.weight):
                         best_weight_orders.append(order)
                 self.check_distance(courier, best_weight_orders)
         else:
             best_weight_orders = []
             for order in best_orders:
-                if int(delivery_boy.maxWeight) - int(previous_order.weight) > int(order.weight):
+                if int(delivery_boy.backpack_weight) >= int(order.weight):
                     best_weight_orders.append(order)
+
+            if len(best_weight_orders) == 0:
+                delivery_boy.go_to_base()
+                return
             self.check_distance(delivery_boy, best_weight_orders)
+
 
     def __init__(self, company):
         self.__company = company

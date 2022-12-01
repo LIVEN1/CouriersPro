@@ -17,10 +17,12 @@ class InputManager:
             if first_value.isdigit() & second_value.isdigit():
                 return True
             else:
+                print("Error")
                 return False
         else:
             value = array[0]
             if value.isdigit():
                 return True
             else:
+                print("Error")
                 return False
