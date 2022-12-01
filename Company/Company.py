@@ -7,12 +7,8 @@ class Company:
 
 
     def destroy_order(self, order):
-        if self.get_orders_count() < 1:
-            print("Error")
-            return
-
         self.__list_of_orders__.remove(order)
-        print("Order has Destoryed")
+        print("Заказ забран")
 
     def try_to_destroy_courier(self, id):
         if int(id) <= len(self.__list_of_couriers__):
