@@ -6,6 +6,11 @@ class InputManager:
 
     @staticmethod
     def is_number(array):
+        if len(array) == 0:
+            print("Error")
+            return
+
+
         if len(array) > 1:
             first_value = array[0]
             second_value = array[1]

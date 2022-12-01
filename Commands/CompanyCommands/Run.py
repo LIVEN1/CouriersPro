@@ -1,5 +1,5 @@
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.DeliveryManager import company_manager
+from CouriersPro.Company.Manager.DeliveryManager import delivery_manager
 
 cmd = "Run"
 
@@ -7,7 +7,7 @@ cmd = "Run"
 class StartProgram(ICommand):
     def execute_command(self, command):
         if command.casefold() == cmd.casefold():
-            company_manager.start_program()
+            delivery_manager.start_program()
             return
 
     @staticmethod

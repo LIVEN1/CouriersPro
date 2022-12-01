@@ -23,6 +23,7 @@ class OrderCreator(ICommand):
                 order = Order(self.__get_random_coordinates__(), self.__get_random_coordinates__(),
                               self.__get_random_weight())
                 company.add_order(order)
+            print("Создано " + value + " Заказа")
 
     @staticmethod
     def __get_random_coordinates__():

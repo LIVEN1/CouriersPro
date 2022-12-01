@@ -9,17 +9,19 @@ class CourierManager:
         print("Введите координаты начала через пробел(x y).")
         coordinates = InputManager.get_input()
         coordinates_array = coordinates.split()
-        if len(coordinates_array) < 2:
-            print("Error")
-            return
-        x_coord = coordinates_array[0]
-        y_coord = coordinates_array[1]
         if InputManager.is_number(coordinates_array):
+            if len(coordinates_array) < 2:
+                print("Error")
+                return
+            x_coord = int(coordinates_array[0])
+            y_coord = int(coordinates_array[1])
             print("Введите вместимость рюкзака")
             weight = InputManager.get_input()
-            if InputManager.is_number(weight):
+            if InputManager.is_number(weight) and int(weight) > 0:
                 courier = Courier(x_coord, y_coord, int(weight))
                 company.add_courier(courier)
+            else:
+                print("Вес введен неправильно")
         else:
             print("Введены неправильные данные")
             return

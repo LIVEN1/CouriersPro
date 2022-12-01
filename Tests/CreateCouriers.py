@@ -24,6 +24,7 @@ class CourierCreator(ICommand):
                 courier = Courier(self.__get_random_coordinates__(), self.__get_random_coordinates__(),
                                   self.__get_random_weight())
                 company.add_courier(courier)
+            print("Создано " + value + " Курьера")
 
     @staticmethod
     def __get_random_coordinates__():

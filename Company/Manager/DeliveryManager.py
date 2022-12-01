@@ -2,9 +2,11 @@ from CouriersPro.Company.Company import Company
 
 
 class DeliveryManager:
-    __company = 0
 
     def start_program(self):
+        if company.get_orders_count() < 1 and company.get_couriers_count() < 1:
+            print("Error")
+            return
         self.check_weight(None, None, None)
 
     def check_distance(self, courier, best_weight_orders):
@@ -17,6 +19,7 @@ class DeliveryManager:
         min_distance = min(best_orders.values())
         best_order = [key for key in best_orders if best_orders[key] == min_distance]
         courier.attach_order(best_order[0])
+        company.try_to_destroy_order(best_order[0])
         best_weight_orders.remove(best_order[0])
         self.check_weight(courier, best_weight_orders, best_order[0])
         return
@@ -38,11 +41,10 @@ class DeliveryManager:
                     best_weight_orders.append(order)
             self.check_distance(delivery_boy, best_weight_orders)
 
-
     def __init__(self, company):
         self.__company = company
         print(True)
 
 
 company = Company()
-company_manager = DeliveryManager(company)
+delivery_manager = DeliveryManager(company)
