@@ -4,14 +4,15 @@ class Company:
 
     def add_order(self, order):
         self.__list_of_orders__.append(order)
-        print(self.__list_of_orders__)
 
-    def try_to_destroy_order(self, id):
-        if int(id) <= len(self.__list_of_orders__):
-            self.__list_of_orders__.pop(int(id) - 1)
-            print(self.__list_of_orders__)
-        else:
-            print("Id Больше Максимального")
+
+    def try_to_destroy_order(self, order):
+        if self.get_orders_count() < 1:
+            print("Error")
+            return
+
+        self.__list_of_orders__.remove(order)
+        print("Order has Destoryed")
 
     def try_to_destroy_courier(self, id):
         if int(id) <= len(self.__list_of_couriers__):
@@ -34,7 +35,7 @@ class Company:
 
     def add_courier(self, courier):
         self.__list_of_couriers__.append(courier)
-        print(self.__list_of_couriers__)
+
 
     def __init__(self):
         self.__list_of_orders = []

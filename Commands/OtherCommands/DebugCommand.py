@@ -10,8 +10,7 @@ class DebugCommand(ICommand):
 
     def execute_command(self, command):
         if command.casefold() == cmd.casefold():
-            print("Debug mode on")
-            debug_mode_controller.set_debug_mode(True)
+            debug_mode_controller.set_debug_mode()
             return
 
 

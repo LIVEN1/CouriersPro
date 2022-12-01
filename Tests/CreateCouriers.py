@@ -1,6 +1,6 @@
 import random
 from CouriersPro.Commands.CompanyCommands.ICommand import ICommand
-from CouriersPro.Company.Manager.CompanyManager import company
+from CouriersPro.Company.Manager.DeliveryManager import company
 from CouriersPro.Courier.TypeOfCouriers.Courier import Courier
 from CouriersPro.FolderOfSetting.DebugModeController import debug_mode_controller
 from CouriersPro.InputManager.InputManager import InputManager
@@ -24,6 +24,7 @@ class CourierCreator(ICommand):
                 courier = Courier(self.__get_random_coordinates__(), self.__get_random_coordinates__(),
                                   self.__get_random_weight())
                 company.add_courier(courier)
+            print("Создано " + value + " Курьера")
 
     @staticmethod
     def __get_random_coordinates__():
